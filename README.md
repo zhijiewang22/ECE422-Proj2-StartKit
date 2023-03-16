@@ -15,7 +15,7 @@ Initial steps for accomplishing your project:
 
 1. Create 3 VMs on Cybera cloud with the following specifications:
 
-    1. Use `Ubuntu 16.04` as the image for all VMs.
+    1. Use `Ubuntu 18.04` or `Ubuntu 20.04` as the image for all VMs.
 
     2. You need one of these VMs to run the client program for which you may use `m1.small` flavor. Let's call this VM as
 the `Client_VM`.
