@@ -1,0 +1,11 @@
+Design Requirements
+1. A high-level architectural view of your application in which
+auto-scalability features have been shown.
+2. A state diagram that shows the state, events and actions in the
+auto-scaler.
+3. The pseudocode of the auto-scaling algorithm along with reasons
+behind the parameter settings in the algorithm; important parameters
+may include lower and higher thresholds, the length of the monitoring
+interval, scaling policies, etc.
+All design artifacts should be stored in a folder named “Design” in your
+project repository.
