@@ -1,0 +1,19 @@
+route:
+  receiver: 'low-response-time-receiver'
+  group_by: ['alertname']
+  routes:
+    - match:
+        alertname: HighResponseTime
+      receiver: high-response-time-receiver
+    - match:
+        alertname: LowResponseTime
+      receiver: low-response-time-receiver
+
+receivers:
+- name: 'high-response-time-receiver'
+  webhook_configs:
+  - url: 'http://scaler:5001/scaleup'
+
+- name: 'low-response-time-receiver'
+  webhook_configs:
+  - url: 'http://scaler:5001/scaledown'
