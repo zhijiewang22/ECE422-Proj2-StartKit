@@ -11,12 +11,12 @@ app = Flask(__name__)
 
 @app.route('/scaleup', methods=['POST'])
 def scale():
-    subprocess.run(["./scale.sh", "app_name_web", "scaleup"])
+    subprocess.run(["bash", "./scale.sh", "app_name_web", "scaleup"])
     return '', 200
 
 @app.route('/scaledown', methods=['POST'])
 def scale_down():
-    subprocess.run(["./scale.sh", "app_name_web", "scaledown"])
+    subprocess.run(["bash", "./scale.sh", "app_name_web", "scaledown"])
     return '', 200
 
 if __name__ == '__main__':
