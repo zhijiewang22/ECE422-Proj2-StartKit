@@ -7,7 +7,7 @@ groups:
     annotations:
       summary: High response time
   - alert: LowResponseTime
-    expr: avg(rate(request_processing_seconds_sum[20s]) / rate(request_processing_seconds_count[20s])) < 0.5
+    expr: avg(rate(request_processing_seconds_sum[20s]) / rate(request_processing_seconds_count[20s])) < 0.5 or absent(rate(request_processing_seconds_count[20s]))
     for: 10s
     annotations:
       summary: Low response time
