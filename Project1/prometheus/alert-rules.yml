@@ -2,12 +2,10 @@ groups:
 - name: web_response
   rules:
   - alert: HighResponseTime
-    expr: avg(rate(request_processing_seconds_sum[20s]) / rate(request_processing_seconds_count[20s])) > 1.5
-    for: 10s
+    expr: rate(request_processing_seconds_sum[20s]) / rate(request_processing_seconds_count[20s]) > 5
     annotations:
       summary: High response time
   - alert: LowResponseTime
-    expr: avg(rate(request_processing_seconds_sum[20s]) / rate(request_processing_seconds_count[20s])) < 0.5 or absent(rate(request_processing_seconds_count[20s]))
-    for: 10s
+    expr: rate(request_processing_seconds_sum[20s]) / rate(request_processing_seconds_count[20s]) < 2 or absent(rate(request_processing_seconds_count[30s]))
     annotations:
       summary: Low response time

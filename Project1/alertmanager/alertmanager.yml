@@ -1,6 +1,8 @@
 route:
-  receiver: 'low-response-time-receiver'
+  receiver: 'response-time-receiver'
   group_by: ['alertname']
+  group_interval: 15s
+  repeat_interval: 30s
   routes:
     - match:
         alertname: HighResponseTime
@@ -10,10 +12,11 @@ route:
       receiver: low-response-time-receiver
 
 receivers:
+- name: 'response-time-receiver'
 - name: 'high-response-time-receiver'
   webhook_configs:
-  - url: 'http://scaler:5001/scaleup'
+  - url: 'http://10.2.7.109:5001/scaleup'
 
 - name: 'low-response-time-receiver'
   webhook_configs:
-  - url: 'http://scaler:5001/scaledown'
+  - url: 'http://10.2.7.109:5001/scaledown'
